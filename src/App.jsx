@@ -10,14 +10,16 @@ import './styles/variables.scss';
 
 function App() {
   return (
-    <main>
+    <div className="wrap">
       <header />
-      <Routes>
-        <Route path="/" element={<Intro />} />
-        <Route path="/guides" element={<Guides />} />
-        <Route path="/tutorial" element={<Tutorial />} />
-      </Routes>
-    </main>
+      <main className="container">
+        <Routes>
+          <Route path="/" element={<Intro />} />
+          <Route path="/guides" element={<Guides />} />
+          <Route path="/tutorial" element={<Tutorial />} />
+        </Routes>
+      </main>
+    </div>
   );
 }
 
