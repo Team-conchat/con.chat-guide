@@ -1,0 +1,12 @@
+@use '../../styles/mixin' as mixin;
+
+.section-intro-category {
+  margin-top: 160px;
+}
+
+.title-category {
+  @include mixin.font-faktum;
+  font-size: 3.2rem;
+  color: var(--white);
+  letter-spacing: 0;
+}
