@@ -3,13 +3,15 @@
   src: url('../assets/fonts/Faktum-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
+  letter-spacing: -0.3rem;
 }
 
 @font-face {
   font-family: 'Faktum';
   src: url('../assets/fonts/Faktum-Bold.woff2') format('woff2');
   font-weight: 700;
-  font-style: bold;
+  font-style: normal;
+  letter-spacing: -0.3rem;
 }
 
 @font-face {
@@ -17,11 +19,13 @@
   src: url('../assets/fonts/Pretendard-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
+  letter-spacing: -0.15rem;
 }
 
 @font-face {
   font-family: 'Pretendard';
   src: url('../assets/fonts/Pretendard-Bold.woff2') format('woff2');
   font-weight: 700;
-  font-style: bold;
+  font-style: normal;
+  letter-spacing: -0.15rem;
 }
