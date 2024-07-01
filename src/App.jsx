@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Intro from './pages/Intro';
 import Guides from './pages/Guides';
-import Tutorial from './pages/Tutorial';
+import TryItOut from './pages/TryItOut';
 import Chat from './pages/Guides/methods/Chat';
 import SetLanguage from './pages/Guides/methods/SetLanguage';
 import Speak from './pages/Guides/methods/Speak';
@@ -56,7 +56,7 @@ function App() {
             <Route path="showGuide" element={<ShowGuide />} />
             <Route path="close" element={<Close />} />
           </Route>
-          <Route path="/tutorial" element={<Tutorial />} />
+          <Route path="/tryitout" element={<TryItOut />} />
         </Routes>
       </main>
     </div>
