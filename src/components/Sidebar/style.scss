@@ -1,0 +1,22 @@
+@use '../../styles/mixin' as mixin;
+
+.sidebar {
+  .sidebar-title {
+    @include mixin.font-faktum;
+    padding: 5px 0 20px;
+    border-bottom: 1px solid var(--white);
+    font-size: 2.6rem;
+    font-weight: 700;
+  }
+
+  .sidebar-body {
+    padding: 20px 0;
+
+    a {
+      @include mixin.font-faktum;
+      display: block;
+      padding: 5px 0;
+      font-size: 2.1rem;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@use '../../styles/mixin' as mixin;
+
+.guide-content {
+  .title-guide {
+    @include mixin.font-faktum;
+    color: var(--primary);
+    font-size: 4.2rem;
+    font-weight: 700;
+
+    & + .section-content {
+      margin: 20px 0;
+      font-size: 2rem;
+    }
+  }
+}
