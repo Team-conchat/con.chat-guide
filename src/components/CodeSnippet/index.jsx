@@ -17,7 +17,7 @@ function CodeSnippet({ language, code }) {
   };
 
   return (
-    <div className="code-example">
+    <div className="code-snippet">
       <div className="example-header">
         <span className="language-name">{language}</span>
         <div className="code-copy">
