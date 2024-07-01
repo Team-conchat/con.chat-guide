@@ -17,6 +17,8 @@ module.exports = {
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'react/react-in-jsx-scope': 'off',
     'react/no-unescaped-entities': 'off',
+    'react/require-default-props': 'off',
+    'no-plusplus': 'off',
   },
   settings: {
     react: {
