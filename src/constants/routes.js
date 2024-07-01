@@ -1,5 +1,5 @@
 export const NAV_LINKS = [
-  { path: '/guide', name: 'Guide' },
+  { path: '/guides', name: 'Guides' },
   { path: '/tutorial', name: 'Tutorial' },
 ];
 
