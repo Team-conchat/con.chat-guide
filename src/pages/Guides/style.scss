@@ -2,7 +2,6 @@
 
 .page-guides {
   min-height: 100vh;
-  margin-top: 150px;
 
   .inner {
     display: grid;
@@ -13,13 +12,24 @@
   }
 
   .guide-content {
-    padding-top: 20px;
+    padding-top: 50px;
   }
 
   .sidebar {
     position: sticky;
-    top: 0;
-    padding-top: 30px;
-    height: 300px;
+    top: 100px;
+    padding-top: 60px;
+    height: calc(100vh - 100px);
+    box-sizing: border-box;
+
+    .sidebar-menu {
+      height: calc(100vh - 300px);
+      overflow-y: auto;
+      -ms-overflow-style: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
   }
 }
