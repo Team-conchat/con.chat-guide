@@ -7,18 +7,16 @@ function Sidebar({ title, items, activePath }) {
   return (
     <aside className="sidebar">
       <div className="sidebar-title">{title}</div>
-      <div className="sidebar-body">
-        <ul>
-          {items.map((item) => (
-            <li
-              key={item.id}
-              className={activePath === item.path ? 'is-active' : ''}
-            >
-              <Link to={item.path}>{item.title}</Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <ul className="sidebar-menu">
+        {items.map((item) => (
+          <li
+            key={item.id}
+            className={`item-menu ${activePath === item.path ? 'is-active' : ''}`}
+          >
+            <Link to={item.path}>{item.title}</Link>
+          </li>
+        ))}
+      </ul>
     </aside>
   );
 }

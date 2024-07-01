@@ -4,7 +4,7 @@ import './style.scss';
 
 function GuideSection({ title, children }) {
   return (
-    <section>
+    <section className="guide-section">
       <h3 className="title-section">{title}</h3>
       <div className="section-content">{children}</div>
     </section>

@@ -9,14 +9,21 @@
     font-weight: 700;
   }
 
-  .sidebar-body {
+  .sidebar-menu {
     padding: 20px 0;
 
-    a {
-      @include mixin.font-faktum;
-      display: block;
-      padding: 5px 0;
-      font-size: 2.1rem;
+    .item-menu {
+      &.is-active {
+        font-weight: 700;
+        color: var(--primary);
+      }
+
+      a {
+        @include mixin.font-faktum;
+        display: block;
+        padding: 5px 0;
+        font-size: 2.1rem;
+      }
     }
   }
 }
