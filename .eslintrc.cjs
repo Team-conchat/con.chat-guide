@@ -16,6 +16,7 @@ module.exports = {
     'prettier/prettier': ['error'],
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'react/react-in-jsx-scope': 'off',
+    'react/no-unescaped-entities': 'off',
   },
   settings: {
     react: {

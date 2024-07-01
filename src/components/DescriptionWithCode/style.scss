@@ -1,0 +1,12 @@
+.box-description-code {
+  margin-top: 80px;
+
+  & + & {
+    margin-top: 60px;
+  }
+  .text {
+    padding-bottom: 18px;
+    font-size: 2rem;
+    white-space: pre-wrap;
+  }
+}

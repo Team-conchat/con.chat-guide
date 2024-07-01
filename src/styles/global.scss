@@ -1,4 +1,5 @@
 @use './fonts';
+@use './mixin' as mixin;
 
 html,
 body,
@@ -45,19 +46,23 @@ header,
 nav,
 section,
 audio,
-video {
+video,
+pre {
+  @include mixin.font-pretendard;
   margin: 0;
   padding: 0;
   border: 0;
   font: inherit;
   vertical-align: baseline;
-  font-family: 'Pretendard', sans-serif;
 }
 
 html,
 body {
+  @include mixin.font-pretendard;
   height: 100%;
+  background-color: var(--layout-bg-color);
   font-size: 10px;
+  color: var(--white);
 }
 
 article,
@@ -73,7 +78,7 @@ section {
 }
 
 body {
-  line-height: 1;
+  line-height: 1.5;
 }
 
 ol,
@@ -137,4 +142,15 @@ img {
   height: 1px;
   margin: -1px;
   overflow: hidden;
+}
+
+.wrap {
+  font-size: 1.6rem;
+}
+
+.inner {
+  max-width: 1440px;
+  padding: 0 20px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
