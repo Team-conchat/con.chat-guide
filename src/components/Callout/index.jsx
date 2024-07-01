@@ -18,7 +18,7 @@ Callout.propTypes = {
 };
 
 Callout.defaultProps = {
-  backgroundColor: '#e2e2e2', // 기본 배경색
+  backgroundColor: '#e2e2e2',
 };
 
 export default Callout;
