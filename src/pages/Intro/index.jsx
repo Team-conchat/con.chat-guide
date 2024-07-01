@@ -1,18 +1,19 @@
-import React, { useRef } from 'react';
+import { useRef, createRef } from 'react';
 
 import CodeBlock from '../../components/CodeBlock';
 import NavCategory from '../../components/NavCategory';
 import IntroSection from '../../components/IntroSection';
 import DescriptionWithCode from '../../components/DescriptionWithCode';
 
-import { NAV_CATEGORY } from '../../constant/routes';
+import { NAV_CATEGORY } from '../../constants/routes';
 
 import './style.scss';
 
 function Intro() {
   const sectionRefs = useRef(
     NAV_CATEGORY.reduce((acc, value) => {
-      acc[value.id] = React.createRef();
+      acc[value.id] = createRef();
+
       return acc;
     }, {}),
   );
@@ -85,11 +86,15 @@ function Intro() {
               title="ROOM"
             >
               <DescriptionWithCode
-                text={`디버깅 방을 생성합니다. 고유한 키가 생성됩니다.\n생성된 키값은 한 번만 볼 수 있으니, 잘 기억하세요!\n디버깅 방에서는 사용자들간의 DOM 조작이 가능합니다.`}
+                text={
+                  '디버깅 방을 생성합니다. \n고유한 키가 생성됩니다. 생성된 키값은 한 번만 볼 수 있습니다.\n디버깅 방에서는 사용자들간의 DOM 조작이 가능합니다.'
+                }
                 code="con.createDebugRoom('roomName')"
               />
               <DescriptionWithCode
-                text={`디버깅 방에 입장합니다.\n방 이름과 키가 일치해야 합니다.틀리면 열리지 않아요!`}
+                text={
+                  '디버깅 방에 입장합니다.\n방 이름과 키가 일치해야 합니다. 일치하지 않으면 입장이 불가합니다.'
+                }
                 code="con.enterDebugRoom('roomName', 'roomKey')"
               />
               <DescriptionWithCode
@@ -119,7 +124,9 @@ function Intro() {
                 code="con.setAttribute('attrName', 'attrValue')"
               />
               <DescriptionWithCode
-                text={`개발자 도구에서 클릭한 요소의 주변으로 element를 지정된 위치에 삽입합니다.\nelement는 Javascript 문법을 사용하여 접근할 수 있습니다.\nposition : beforebegin | afterbegin | beforeend | afterend`}
+                text={
+                  '개발자 도구에서 클릭한 요소의 주변으로 element를 지정된 위치에 삽입합니다.\nelement는 Javascript 문법을 사용하여 접근할 수 있습니다.\nposition : beforebegin | afterbegin | beforeend | afterend'
+                }
                 code="con.insertElement(element, 'position')"
               />
               <DescriptionWithCode

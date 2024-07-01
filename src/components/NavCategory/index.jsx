@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-import { NAV_CATEGORY } from '../../constant/routes';
+import { NAV_CATEGORY } from '../../constants/routes';
 
 import './style.scss';
 
@@ -21,7 +21,7 @@ function NavCategory({ sectionRefs }) {
           }
         });
       },
-      { threshold: 0.5 },
+      { threshold: 0.9 },
     );
 
     const currentObserver = observer.current;

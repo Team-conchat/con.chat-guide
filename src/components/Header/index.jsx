@@ -1,6 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
 
-import { NAV_LINKS } from '../../constant/routes';
+import { NAV_LINKS } from '../../constants/routes';
 
 import './style.scss';
 
