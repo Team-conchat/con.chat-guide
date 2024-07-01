@@ -1,0 +1,25 @@
+@use '../../styles/mixin' as mixin;
+
+.page-guides {
+  min-height: 100vh;
+  margin-top: 150px;
+
+  .inner {
+    display: grid;
+    gap: 8rem;
+    grid-template-columns: minmax(0, 0.5fr) minmax(0, 2fr);
+    position: relative;
+    min-height: 100vh;
+  }
+
+  .guide-content {
+    padding-top: 20px;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 0;
+    padding-top: 30px;
+    height: 300px;
+  }
+}
