@@ -1,6 +1,6 @@
 export const NAV_LINKS = [
   { path: '/guides', name: 'Guides' },
-  { path: '/tutorial', name: 'Tutorial' },
+  { path: '/tryitout', name: 'Try it out' },
 ];
 
 export const NAV_CATEGORY = [
