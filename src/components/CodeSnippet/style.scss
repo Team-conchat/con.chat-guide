@@ -1,0 +1,62 @@
+@use '../../styles/mixin' as mixin;
+
+.code-example {
+  margin: 20px 0;
+  border: 1px solid #e2e2e2;
+  border-radius: 12px;
+  background-color: #4e4e57;
+
+  .example-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 2px 15px;
+    border-radius: 12px 12px 0 0;
+    background-color: #e2e2e2;
+
+    .language-name {
+      padding: 5px;
+      font-size: 1em;
+      color: var(--black);
+    }
+
+    .code-copy {
+      position: relative;
+
+      .btn-copy {
+        padding: 5px;
+        border: none;
+        cursor: pointer;
+
+        img {
+          width: 14px;
+        }
+      }
+
+      .copy-icon-message {
+        @include mixin.font-faktum;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 5px 10px;
+        margin-top: 5px;
+        border-radius: 6px;
+        background-color: #333;
+        color: #fff;
+        white-space: nowrap;
+        opacity: 0;
+        transition: opacity 0.3s linear;
+
+        &.is-active {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  pre {
+    padding: 15px 18px;
+  }
+}

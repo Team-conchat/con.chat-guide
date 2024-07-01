@@ -1,0 +1,17 @@
+.callout {
+  display: flex;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 12px;
+  align-items: center;
+
+  .callout-icon {
+    margin-right: 10px;
+    font-size: 1.5em;
+  }
+
+  .callout-content {
+    flex: 1;
+    color: var(--black);
+  }
+}
