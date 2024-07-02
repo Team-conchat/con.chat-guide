@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import './style.scss';
 
-function Callout({ icon, backgroundColor, children }) {
+function Callout({ icon, backgroundColor = '#e2e2e2', children }) {
   return (
     <div className="callout" style={{ backgroundColor }}>
       <span className="callout-icon">{icon}</span>
@@ -15,10 +15,6 @@ Callout.propTypes = {
   icon: PropTypes.string.isRequired,
   backgroundColor: PropTypes.string,
   children: PropTypes.node.isRequired,
-};
-
-Callout.defaultProps = {
-  backgroundColor: '#e2e2e2',
 };
 
 export default Callout;

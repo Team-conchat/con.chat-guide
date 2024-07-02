@@ -1,0 +1,51 @@
+@use '../../../styles/mixin.scss' as mixin;
+
+.sidebar {
+  .sidebar-title {
+    @include mixin.font-faktum;
+    padding: 5px 0 20px;
+    border-bottom: 1px solid var(--white);
+    font-size: 2.6rem;
+    font-weight: 700;
+  }
+
+  .sidebar-menu {
+    padding: 20px 0;
+
+    .item-menu {
+      width: 300px;
+      height: 40px;
+      padding: 5px;
+      margin-top: 10px;
+      font-size: 2rem;
+
+      &.type-red {
+        background: #d63031;
+      }
+
+      &.type-orange {
+        background: #e17055;
+      }
+
+      &.type-yellow {
+        background: #fdcb6e;
+      }
+
+      &.type-green {
+        background: #00b894;
+      }
+
+      &.type-blue {
+        background: #74b9ff;
+      }
+
+      &.type-navy {
+        background: #0984e3;
+      }
+
+      &.type-purple {
+        background: #a29bfe;
+      }
+    }
+  }
+}
