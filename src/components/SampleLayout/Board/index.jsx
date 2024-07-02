@@ -30,7 +30,7 @@ function Board({ xIsNext, board, onPlay }) {
         return;
       }
       const nextBoard = board.slice();
-      nextBoard[i] = xIsNext ? 'X' : 'O';
+      nextBoard[i] = xIsNext ? '🌽' : '🥕';
       onPlay(nextBoard, i);
     },
     [board, xIsNext, onPlay],
@@ -41,7 +41,7 @@ function Board({ xIsNext, board, onPlay }) {
   if (winner) {
     status = `Winner: ${winner}`;
   } else {
-    status = `Next player: ${xIsNext ? 'X' : 'O'}`;
+    status = `Next player: ${xIsNext ? '🌽' : '🥕'}`;
   }
 
   return (
