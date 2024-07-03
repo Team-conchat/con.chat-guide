@@ -10,10 +10,13 @@
   }
 
   .header-sample {
+    @include mixin.font-faktum;
     height: 200px;
     background-color: #fab1a0;
     padding: 20px;
-    font-size: 30px;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--black);
     box-sizing: border-box;
   }
 
@@ -87,10 +90,13 @@
   }
 
   .footer {
+    @include mixin.font-faktum;
     height: 200px;
     background-color: #fdcb6e;
     padding: 20px;
-    font-size: 30px;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--black);
     box-sizing: border-box;
   }
 }
