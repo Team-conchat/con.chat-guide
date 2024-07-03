@@ -29,7 +29,9 @@ function Intro() {
             Let’s debug together!
           </strong>
           <div className="area-info">
-            <CodeBlock code="test" />
+            <CodeBlock
+              code={`<script type="module" src="https://conchat-delivr.netlify.app"></script>`}
+            />
             <a
               href="https://github.com/Team-macoss/con.chat"
               className="link-repository"
