@@ -30,7 +30,7 @@ function Intro() {
           </strong>
           <div className="area-info">
             <CodeBlock
-              code={`<script type="module" src="https://conchat-delivr.netlify.app"></script>`}
+              code={`<script src="https://conchat-delivr.netlify.app/v1.0.0/assets/main.js"></script>`}
             />
             <a
               href="https://github.com/Team-macoss/con.chat"
