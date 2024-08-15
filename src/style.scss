@@ -1,0 +1,15 @@
+@use './styles/mixin' as mixin;
+
+.wrap {
+  .header {
+    @include mixin.tablet {
+      display: none;
+    }
+  }
+
+  .container {
+    @include mixin.tablet {
+      display: none;
+    }
+  }
+}
