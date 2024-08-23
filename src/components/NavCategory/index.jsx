@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { NAV_CATEGORY } from '../../constants/routes';
@@ -7,95 +7,136 @@ import './style.scss';
 
 function NavCategory({ sectionRefs }) {
   const [activeId, setActiveId] = useState(NAV_CATEGORY[0].id);
-  const isScrolling = useRef(false);
-  const observer = useRef(null);
+  const [visibleSections, setVisibleSections] = useState({});
+  const isScrollingRef = useRef(false);
+  const timeoutRef = useRef(null);
+
+  const handleIntersection = useCallback((entries) => {
+    if (isScrollingRef.current) return;
+
+    entries.forEach((entry) => {
+      setVisibleSections((prev) => ({
+        ...prev,
+        [entry.target.id]: entry.isIntersecting,
+      }));
+    });
+  }, []);
 
   useEffect(() => {
-    observer.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const { id } = entry.target;
-
-          if (entry.isIntersecting && !isScrolling.current) {
-            setActiveId(id);
-          }
-        });
-      },
-      { threshold: 0.9 },
-    );
-
-    const currentObserver = observer.current;
+    const observer = new IntersectionObserver(handleIntersection, {
+      threshold: [0, 0.1, 0.5, 1],
+      rootMargin: '-10% 0px -10% 0px',
+    });
 
     Object.values(sectionRefs).forEach((ref) => {
       if (ref.current) {
-        currentObserver.observe(ref.current);
+        observer.observe(ref.current);
       }
     });
 
-    return () => {
-      Object.values(sectionRefs).forEach((ref) => {
-        if (ref.current) {
-          currentObserver.unobserve(ref.current);
-        }
-      });
-    };
-  }, [sectionRefs]);
+    return () => observer.disconnect();
+  }, [sectionRefs, handleIntersection]);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!isScrolling.current) {
-        const sectionKeys = Object.keys(sectionRefs);
+      if (isScrollingRef.current) return;
 
-        const currentSection = sectionKeys.find((id) => {
-          const section = sectionRefs[id].current;
-          const rect = section.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const scrollBottom = scrollTop + windowHeight;
 
-          return (
-            rect.top <= window.innerHeight / 2 &&
-            rect.bottom >= window.innerHeight / 2
-          );
-        });
+      const isAtBottom = Math.abs(documentHeight - scrollBottom) < 1;
 
-        if (currentSection && currentSection !== activeId) {
-          setActiveId(currentSection);
-        }
+      if (isAtBottom) {
+        setActiveId('areaClose');
 
-        if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
-          setActiveId(sectionKeys[sectionKeys.length - 1]);
-        }
+        return;
       }
+
+      const isNearBottom = documentHeight - scrollBottom <= 20;
+
+      if (isNearBottom) {
+        const guideElement = sectionRefs.areaGuide.current;
+        const guideRect = guideElement.getBoundingClientRect();
+
+        if (guideRect.bottom > 0 && guideRect.top < windowHeight) {
+          setActiveId('areaGuide');
+        }
+
+        return;
+      }
+
+      let closestSection = NAV_CATEGORY[0].id;
+      let minDistance = Infinity;
+
+      NAV_CATEGORY.forEach(({ id }) => {
+        if (id === 'areaClose') return;
+
+        const element = sectionRefs[id].current;
+
+        if (element && visibleSections[id]) {
+          const { top, bottom } = element.getBoundingClientRect();
+          const distance = Math.abs(windowHeight / 2 - (top + bottom) / 2);
+
+          if (distance < minDistance) {
+            minDistance = distance;
+            closestSection = id;
+          }
+        }
+      });
+
+      setActiveId(closestSection);
     };
 
     window.addEventListener('scroll', handleScroll);
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [activeId, sectionRefs]);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [sectionRefs, visibleSections]);
 
-  const handleClick = (id) => {
-    setActiveId(id);
+  const handleClick = useCallback(
+    (id) => {
+      setActiveId(id);
+      const element = sectionRefs[id].current;
 
-    const element = sectionRefs[id].current;
+      if (element) {
+        isScrollingRef.current = true;
 
-    if (element) {
-      isScrolling.current = true;
-      const offset = 200;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
+        let scrollToPosition;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
+        if (id === 'areaClose') {
+          scrollToPosition = documentHeight - windowHeight;
+        } else if (id === 'areaGuide') {
+          scrollToPosition = documentHeight - windowHeight - 10;
+        } else {
+          const offset = windowHeight * 0.1;
+          scrollToPosition =
+            element.getBoundingClientRect().top + window.scrollY - offset;
+        }
 
-      setTimeout(() => {
-        isScrolling.current = false;
-      }, 1000);
-    }
-  };
+        scrollToPosition = Math.min(
+          scrollToPosition,
+          documentHeight - windowHeight,
+        );
+
+        window.scrollTo({
+          top: scrollToPosition,
+          behavior: 'smooth',
+        });
+
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+        }
+
+        timeoutRef.current = setTimeout(() => {
+          isScrollingRef.current = false;
+        }, 1000);
+      }
+    },
+    [sectionRefs],
+  );
 
   return (
     <nav className="nav-category">
