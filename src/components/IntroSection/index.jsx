@@ -3,14 +3,12 @@ import PropTypes from 'prop-types';
 
 import './style.scss';
 
-function IntroSection({ id, title, children }, ref) {
-  return (
-    <section id={id} ref={ref} className="section-intro-category">
-      <h3 className="title-category">{title}</h3>
-      {children}
-    </section>
-  );
-}
+const IntroSection = forwardRef(({ id, title, children }, ref) => (
+  <section id={id} ref={ref} className="section-intro-category">
+    <h3 className="title-category">{title}</h3>
+    {children}
+  </section>
+));
 
 IntroSection.displayName = 'IntroSection';
 
@@ -20,6 +18,4 @@ IntroSection.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-const ForwardedIntroSection = forwardRef(IntroSection);
-
-export default ForwardedIntroSection;
+export default IntroSection;
