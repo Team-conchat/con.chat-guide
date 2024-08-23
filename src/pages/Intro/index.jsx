@@ -38,7 +38,7 @@ function Intro() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              GitHub Repository
+              <span className="text">GitHub Repository</span>
             </a>
           </div>
         </div>
