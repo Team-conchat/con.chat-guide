@@ -67,6 +67,12 @@
     font-size: 1.6rem;
   }
 
+  .text {
+    @include mixin.tablet {
+      padding-top: 2px;
+    }
+  }
+
   &:after {
     width: 20px;
     height: 20px;

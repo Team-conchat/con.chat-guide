@@ -12,7 +12,7 @@
   @include mixin.tablet {
     top: 61px;
     margin-right: -20px;
-    padding: 10px 20px 10px 0;
+    padding: 14px 20px 14px 0;
     overflow-x: auto;
   }
 
@@ -39,7 +39,7 @@
     letter-spacing: 0;
 
     @include mixin.tablet {
-      font-size: 2rem;
+      font-size: 1.8rem;
     }
 
     &.is-active {
