@@ -2,6 +2,10 @@
 
 .section-intro-category {
   margin-top: 160px;
+
+  @include mixin.tablet {
+    margin-top: 40px;
+  }
 }
 
 .title-category {
@@ -9,4 +13,8 @@
   font-size: 3.2rem;
   color: var(--white);
   letter-spacing: 0;
+
+  @include mixin.tablet {
+    font-size: 2.4rem;
+  }
 }

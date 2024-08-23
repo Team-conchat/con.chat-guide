@@ -79,7 +79,7 @@ function Intro() {
             >
               <DescriptionWithCode
                 text="사용자 이름을 설정합니다."
-                code="con.configuserName('userName')"
+                code="con.configUserName('userName')"
               />
             </IntroSection>
             <IntroSection

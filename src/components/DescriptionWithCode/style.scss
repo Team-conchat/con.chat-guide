@@ -1,12 +1,28 @@
+@use '../../styles/mixin' as mixin;
+
 .box-description-code {
   margin-top: 80px;
 
+  @include mixin.tablet {
+    margin-top: 30px;
+  }
+
   & + & {
     margin-top: 60px;
+
+    @include mixin.tablet {
+      margin-top: 24px;
+    }
   }
+
   .text {
     padding-bottom: 18px;
     font-size: 2rem;
     white-space: pre-wrap;
+
+    @include mixin.tablet {
+      padding-bottom: 8px;
+      font-size: 1.6rem;
+    }
   }
 }

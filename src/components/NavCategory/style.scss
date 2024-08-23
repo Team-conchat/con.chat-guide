@@ -5,12 +5,30 @@
   top: 101px;
   left: 0;
   z-index: 10;
+  width: 100%;
   padding: 20px 0;
   background-color: var(--layout-bg-color);
+
+  @include mixin.tablet {
+    top: 51px;
+    margin-right: -20px;
+    padding: 10px 20px 10px 0;
+    overflow-x: auto;
+  }
 
   ul {
     display: flex;
     gap: 20px;
+
+    @include mixin.tablet {
+      gap: 10px;
+    }
+
+    li:last-child {
+      @include mixin.tablet {
+        padding-right: 10px;
+      }
+    }
   }
 
   .btn-category {
@@ -19,6 +37,10 @@
     font-size: 3rem;
     color: var(--white);
     letter-spacing: 0;
+
+    @include mixin.tablet {
+      font-size: 2rem;
+    }
 
     &.is-active {
       &::after {
