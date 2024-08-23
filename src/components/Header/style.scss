@@ -11,11 +11,19 @@
   border-bottom: 1px solid var(--white);
   background-color: var(--layout-bg-color);
 
+  @include mixin.tablet {
+    height: 50px;
+  }
+
   .inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 100px;
+
+    @include mixin.tablet {
+      height: 50px;
+    }
   }
 
   .logo {
@@ -23,12 +31,20 @@
     font-size: 3rem;
     font-weight: 700;
     letter-spacing: -0.15rem;
+
+    @include mixin.tablet {
+      font-size: 2rem;
+    }
   }
 
   .nav {
     display: flex;
     gap: 40px;
     font-size: 2rem;
+
+    @include mixin.tablet {
+      font-size: 1.6rem;
+    }
 
     a {
       @include mixin.font-faktum;
@@ -44,6 +60,12 @@
           height: 1px;
           background: var(--white);
           content: '';
+        }
+      }
+
+      &:last-child {
+        @include mixin.tablet {
+          display: none;
         }
       }
     }
