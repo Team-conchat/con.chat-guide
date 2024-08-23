@@ -3,6 +3,10 @@
 .page-intro {
   .code-example {
     width: 80%;
+
+    @include mixin.tablet {
+      width: 100%;
+    }
   }
 }
 
@@ -11,6 +15,10 @@
   padding: 50px 0;
   border-bottom: 1px solid var(--white);
   box-sizing: border-box;
+
+  @include mixin.tablet {
+    height: calc(100vh - 50px);
+  }
 
   .inner {
     display: flex;
@@ -25,6 +33,11 @@
     font-weight: 400;
     letter-spacing: -0.8rem;
     line-height: 1;
+
+    @include mixin.tablet {
+      font-size: 4.6rem;
+      letter-spacing: -0.4rem;
+    }
   }
 
   .area-info {
@@ -48,6 +61,12 @@
   font-weight: 700;
   color: var(--black);
 
+  @include mixin.tablet {
+    width: 200px;
+    min-height: 60px;
+    font-size: 1.6rem;
+  }
+
   &:after {
     width: 20px;
     height: 20px;
@@ -61,10 +80,19 @@
   padding: 80px 0;
   box-sizing: border-box;
 
+  @include mixin.tablet {
+    padding: 50px 0;
+  }
+
   .title {
     @include mixin.font-faktum;
     font-size: 7rem;
     font-weight: 400;
     letter-spacing: -0.5rem;
+
+    @include mixin.tablet {
+      font-size: 3.4rem;
+      letter-spacing: -0.3rem;
+    }
   }
 }

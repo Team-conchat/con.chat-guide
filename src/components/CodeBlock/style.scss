@@ -1,3 +1,5 @@
+@use '../../styles/mixin' as mixin;
+
 .code-example {
   display: flex;
   justify-content: space-between;
@@ -10,6 +12,10 @@
   background-color: var(--code-bg-color);
   box-sizing: border-box;
 
+  @include mixin.tablet {
+    min-height: 60px;
+  }
+
   pre {
     overflow-x: auto;
   }
@@ -17,6 +23,10 @@
   code {
     font-size: 2rem;
     color: var(--white);
+
+    @include mixin.tablet {
+      font-size: 1.6rem;
+    }
   }
 
   .code-copy {
