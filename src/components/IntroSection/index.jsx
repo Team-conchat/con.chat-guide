@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
 import './style.scss';
@@ -12,12 +12,14 @@ function IntroSection({ id, title, children }, ref) {
   );
 }
 
-const ForwardedIntroSection = forwardRef(IntroSection);
+IntroSection.displayName = 'IntroSection';
 
 IntroSection.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };
+
+const ForwardedIntroSection = forwardRef(IntroSection);
 
 export default ForwardedIntroSection;
