@@ -17,7 +17,7 @@
   box-sizing: border-box;
 
   @include mixin.tablet {
-    height: calc(100vh - 50px);
+    height: calc(100vh - 60px);
   }
 
   .inner {
@@ -73,6 +73,11 @@
     background: url('../../assets/icons/icon-github.png') no-repeat center;
     background-size: cover;
     content: '';
+
+    @include mixin.tablet {
+      width: 16px;
+      height: 16px;
+    }
   }
 }
 

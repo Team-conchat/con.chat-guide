@@ -12,18 +12,14 @@
   background-color: var(--layout-bg-color);
 
   @include mixin.tablet {
-    height: 50px;
+    height: 60px;
   }
 
   .inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100px;
-
-    @include mixin.tablet {
-      height: 50px;
-    }
+    height: 100%;
   }
 
   .logo {
@@ -33,7 +29,7 @@
     letter-spacing: -0.15rem;
 
     @include mixin.tablet {
-      font-size: 2rem;
+      font-size: 2.4rem;
     }
   }
 
