@@ -1,3 +1,5 @@
+@use '../../styles/mixin' as mixin;
+
 .callout {
   display: flex;
   padding: 15px;
@@ -13,5 +15,19 @@
   .callout-content {
     flex: 1;
     color: var(--black);
+  }
+}
+
+@include mixin.tablet {
+  .callout {
+    padding: 10px 13px;
+
+    .callout-icon {
+      font-size: 1.2em;
+    }
+
+    .callout-content {
+      font-size: 1.4rem;
+    }
   }
 }

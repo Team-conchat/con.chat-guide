@@ -13,6 +13,8 @@
     padding: 20px 0;
 
     .item-menu {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
       &.is-active {
         font-weight: 700;
         color: var(--primary);
@@ -21,9 +23,46 @@
       a {
         @include mixin.font-faktum;
         display: block;
-        padding: 5px 0;
+        padding: 14px 0;
         font-size: 2.1rem;
       }
+    }
+  }
+
+  .btn-close-sidebar-mobile {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 19px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 36px;
+    color: var(--white);
+  }
+}
+
+@include mixin.tablet {
+  .sidebar {
+    .sidebar-title {
+      font-size: 2.2rem;
+    }
+
+    .sidebar-menu {
+      .item-menu {
+        a {
+          padding: 12px 0;
+          letter-spacing: -0.1rem;
+          font-size: 1.9rem;
+        }
+      }
+    }
+
+    &.open {
+      transform: translateX(0);
+    }
+
+    .btn-close-sidebar-mobile {
+      display: block;
     }
   }
 }
