@@ -3,16 +3,61 @@
 .page-guides {
   min-height: 100vh;
 
+  @include mixin.tablet {
+    min-height: auto;
+  }
+
+  .sub-header-mobile {
+    display: none;
+    z-index: 20;
+    position: sticky;
+    top: 61px;
+    padding: 10px;
+    background-color: var(--layout-bg-color);
+    color: var(--white);
+
+    .btn-toggle-sidebar {
+      border: none;
+      font-size: 24px;
+      background: none;
+      color: var(--white);
+      cursor: pointer;
+    }
+
+    .method-title {
+      @include mixin.font-faktum;
+      margin: 0;
+      letter-spacing: -0.1rem;
+      font-size: 1.8rem;
+      margin-left: 10px;
+    }
+
+    @include mixin.tablet {
+      display: flex;
+      align-items: center;
+    }
+  }
+
   .inner {
     display: grid;
     gap: 8rem;
     grid-template-columns: minmax(0, 0.5fr) minmax(0, 2fr);
     position: relative;
     min-height: 100vh;
+
+    @include mixin.tablet {
+      display: block;
+      min-height: auto;
+      gap: 0;
+    }
   }
 
   .guide-content {
     padding-top: 50px;
+
+    @include mixin.tablet {
+      padding: 20px 0;
+    }
   }
 
   .sidebar {
@@ -30,6 +75,54 @@
       &::-webkit-scrollbar {
         display: none;
       }
+    }
+
+    @include mixin.tablet {
+      z-index: 30;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 80%;
+      padding: 20px;
+      box-sizing: border-box;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+      background-color: var(--layout-bg-color);
+
+      .sidebar-menu {
+        padding: 0;
+        height: calc(100% - 59px);
+      }
+    }
+  }
+
+  .sidebar-dim {
+    display: none;
+
+    @include mixin.tablet {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 25;
+    }
+  }
+
+  @include mixin.tablet {
+    .sidebar {
+      &.open {
+        transform: translateX(0);
+      }
+    }
+    .sidebar-dim {
+      display: block;
+    }
+    .content {
+      overflow: hidden;
     }
   }
 }
