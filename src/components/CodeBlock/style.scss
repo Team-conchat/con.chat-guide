@@ -13,6 +13,7 @@
   box-sizing: border-box;
 
   @include mixin.tablet {
+    gap: 10px;
     min-height: 60px;
   }
 
@@ -40,6 +41,10 @@
 
       img {
         width: 18px;
+
+        @include mixin.tablet {
+          width: 14px;
+        }
       }
     }
 
