@@ -1,6 +1,10 @@
 @use '../../styles/mixin.scss' as mixin;
 
 .page-try {
+  @include mixin.tablet {
+    display: none;
+  }
+
   .inner {
     display: flex;
     flex-direction: column;

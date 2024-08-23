@@ -23,16 +23,13 @@ import ShowComponentTree from './pages/Guides/methods/ShowComponentTree';
 import ShareComponentTree from './pages/Guides/methods/ShareComponentTree';
 import ShowGuide from './pages/Guides/methods/ShowGuide';
 import Close from './pages/Guides/methods/Close';
-import MobileView from './components/MobileView';
 
 import './styles/global.scss';
 import './styles/variables.scss';
-import './style.scss';
 
 function App() {
   return (
     <div className="wrap">
-      <MobileView />
       <Header />
       <main className="container">
         <Routes>

@@ -1,3 +1,4 @@
+import MobileView from '../../components/MobileView';
 import Header from '../../components/SampleLayout/Header';
 import Container from '../../components/SampleLayout/Container';
 import Sidebar from '../../components/SampleLayout/Sidebar';
@@ -20,19 +21,22 @@ const SIDEVAR_LIST = [
 
 function TryItOut() {
   return (
-    <div className="page-try">
-      <div className="inner">
-        <Header />
-        <Container>
-          <Sidebar title="Menu" items={SIDEVAR_LIST} />
-          <Section>
-            <Title />
-            <Game />
-          </Section>
-        </Container>
-        <Footer />
+    <>
+      <MobileView />
+      <div className="page-try">
+        <div className="inner">
+          <Header />
+          <Container>
+            <Sidebar title="Menu" items={SIDEVAR_LIST} />
+            <Section>
+              <Title />
+              <Game />
+            </Section>
+          </Container>
+          <Footer />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
